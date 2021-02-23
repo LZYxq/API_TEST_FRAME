@@ -8,17 +8,23 @@ import os
 import xlrd
 from common.excel_utils import ExcelUtils
 
-excel_path = os.path.join( os.path.dirname(__file__) , 'data/test_data.xlsx' )
+# excel_path = os.path.join( os.path.dirname(__file__) , 'data/test_data.xlsx' )
+excel_path = os.path.join( os.path.dirname(__file__) , 'data/datashell.xls' )
 excelUtils = ExcelUtils(excel_path,"Sheet1")
-# print(  excelUtils.get_merged_cell_value(4,0) )
-# print( excelUtils.get_row_count() )
+print(excelUtils.get_merged_cell_value(4,0) )
+print(excelUtils.get_row_count())
 sheet_list = []
-for row in range(1,excelUtils.get_row_count()): #
+for row in range(1,excelUtils.get_row_count()): #s
     row_dict = {}
     row_dict["事件"] = excelUtils.get_merged_cell_value(row,0)
     row_dict["步骤序号"] = excelUtils.get_merged_cell_value(row, 1)
     row_dict["步骤操作"] = excelUtils.get_merged_cell_value(row, 2)
     row_dict["完成情况"] = excelUtils.get_merged_cell_value(row, 3)
+    # row_dict["事件"] = excelUtils.get_merged_cell_value(row, 0)
+    # row_dict["自欧典二"] = excelUtils.get_merged_cell_value(row, 1)
+    # row_dict["字段三"] = excelUtils.get_merged_cell_value(row, 2)
+    # row_dict["四"] = excelUtils.get_merged_cell_value(row, 3)
+    # row_dict["五"] = excelUtils.get_merged_cell_value(row, 4)
     sheet_list.append( row_dict )
 #
 # for row in sheet_list:
